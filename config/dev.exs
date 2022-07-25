@@ -16,7 +16,8 @@ config :cheza, ChezaWeb.Endpoint,
   secret_key_base: "BsOJNKxhZks1U2uOnJzG/+W/Iln2xAJWSk4G0m3ZzSBZUvfryQN94kW9QyxtdseG",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support

@@ -17,7 +17,8 @@ defmodule ChezaWeb.Router do
   scope "/", ChezaWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/welcome", PageController, :index
+    live "/", :CategoriesLive
   end
 
   # Other scopes may use custom stacks.
