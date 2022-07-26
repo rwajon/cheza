@@ -22,7 +22,7 @@
         <%= if @show_answer do%>
           <h1 class="text-5xl text-center text-green-500 mt-5"><%= @question.answer %></h1>
         <% else %>
-          <input type="text" name="answer" class={"#{if !@is_correct && @answer != "", do: "shake border-red-500 bg-red-100", else: "border-slate-300"} mt-10 w-full mt-1 px-3 py-4 bg-white border shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"} placeholder="Type your answer" autocomplete="off" value={"#{@answer}"} />
+          <input type="text" name="answer" class={"#{if !@is_correct && @answer != "", do: "shake border-red-500 bg-red-100", else: "border-slate-300"} mt-10 w-full px-3 py-4 bg-white border shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"} placeholder="Type your answer" autocomplete="off" value={"#{@answer}"} />
         <% end %>
         <div class="flex flex-col md:flex-row justify-center items-center text-gray-900 mt-10">
           <%= if !@show_answer do%>
