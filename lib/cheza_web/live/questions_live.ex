@@ -20,4 +20,10 @@ defmodule ChezaWeb.QuestionsLive do
       "history" -> Cheza.Helpers.Questions.Geography.get_random_question()
     end
   end
+
+  def handle_event("next_question", _, socket) do
+    category = socket.assigns.category
+    socket = assign(socket, :question, get_question(category.name))
+    {:noreply, socket}
+  end
 end
