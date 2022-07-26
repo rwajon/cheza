@@ -1,12 +1,22 @@
 defmodule Cheza.Helpers.Questions.Geography do
   def get_random_question() do
-    questions = get_questions()
-    i = :rand.uniform(length(questions))
-    Enum.at(questions, i)
+    Enum.random(get_questions())
   end
 
   def get_questions do
     [
+      %{:question => "This country was once called Dahomey. Which country?", :answer => "Benin"},
+      %{:question => "The Malagasy Republic is now called?", :answer => "Madagascar"},
+      %{:question => "Of which country is Cyrenaica a part?", :answer => "Libya"},
+      %{
+        :question => "Through which country does the greater part of the Nile flow?",
+        :answer => "Sudan"
+      },
+      %{:question => "What's the westernmost major city of Africa?", :answer => "Dakar"},
+      %{
+        :question => "What's the name of the highest peak in Africa?",
+        :answer => "Mount Kilimanjaro"
+      },
       %{:question => "What is the capital of Abkhazia?", :answer => "Sukhumi"},
       %{:question => "What is the capital of Afghanistan?", :answer => "Kabul"},
       %{
