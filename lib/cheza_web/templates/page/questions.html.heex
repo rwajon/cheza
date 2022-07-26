@@ -1,5 +1,6 @@
-<section>
-  <div class="p-4 flex flex-col justify-center items-center">
+<section class="p-4">
+  <a href="/" class="px-6 py-2 mx-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">&lt;Back</a>
+  <div class="flex flex-col justify-center items-center">
   <%= if @category == nil do %>
   <h1 class="text-5xl">Category not found</h1>
   <% else %>
@@ -15,13 +16,22 @@
         </div>
       </div>
     </div>
-    <h1 class="text-5xl pt-10"><%= @question.question %></h1>
-    <div class="py-16 w-80 flex flex-wrap justify-center">
-      <input type="email" name="email" class="w-full mt-1 px-3 py-4 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1" placeholder="Type your answer" autocomplete="off" />
-      <div class="flex flex-col md:flex-row justify-center items-center text-gray-900 mt-10">
-        <button class="px-6 py-2 mx-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Answer</button>
-        <button class="px-6 py-2 mx-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none" phx-click="next_question">Next</button>
-      </div>
+    <h1 class="text-5xl pt-10 text-center"><%= @question.question %></h1>
+    <div class="w-80 flex flex-wrap justify-center">
+      <form phx-submit="answer_to_question">
+        <%= if @show_answer do%>
+          <h1 class="text-5xl text-center text-green-500 mt-5"><%= @question.answer %></h1>
+        <% else %>
+          <input type="text" name="answer" class={"#{if !@is_correct && @answer != "", do: "shake border-red-500 bg-red-100", else: "border-slate-300"} mt-10 w-full mt-1 px-3 py-4 bg-white border shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"} placeholder="Type your answer" autocomplete="off" value={"#{@answer}"} />
+        <% end %>
+        <div class="flex flex-col md:flex-row justify-center items-center text-gray-900 mt-10">
+          <%= if !@show_answer do%>
+            <button type="submit" class="px-6 py-2 mx-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Answer</button>
+            <a href="#" class="px-6 py-2 mx-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none" phx-click="show_answer">Show</a>
+          <% end %>
+          <a href="#" class="px-6 py-2 mx-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none" phx-click="next_question">Next</a>
+        </div>
+      </form>
     </div>
   <% end %>
   
