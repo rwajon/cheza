@@ -1,0 +1,29 @@
+<section>
+  <div class="p-4 flex flex-col justify-center items-center">
+  <%= if @category == nil do %>
+  <h1 class="text-5xl">Category not found</h1>
+  <% else %>
+    <div class="w-screen flex flex-wrap justify-center">
+      <div class="container mx-auto max-w-sm w-full p-4 sm:w-1/2">
+        <div class="card flex flex-col justify-center p-10 bg-white rounded-lg shadow-lg hover:shadow-2xl">
+          <div class="prod-title">
+            <p class="text-2xl uppercase text-gray-900 font-bold text-center"><%= @category.name %></p>
+          </div>
+          <div class="prod-img py-4">
+            <img src={"#{@category.image}"} class="w-full object-cover object-center" style="max-height: 180px" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="text-5xl pt-10"><%= @question.question %></h1>
+    <div class="py-16 w-80 flex flex-wrap justify-center">
+      <input type="email" name="email" class="w-full mt-1 px-3 py-4 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1" placeholder="Type your answer" autocomplete="off" />
+      <div class="flex flex-col md:flex-row justify-center items-center text-gray-900 mt-10">
+        <button class="px-6 py-2 mx-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Answer</button>
+        <button class="px-6 py-2 mx-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Next</button>
+      </div>
+    </div>
+  <% end %>
+  
+  </div>
+</section>

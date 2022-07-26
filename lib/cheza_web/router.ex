@@ -19,6 +19,7 @@ defmodule ChezaWeb.Router do
 
     get "/welcome", PageController, :index
     live "/", :CategoriesLive
+    live "/:category", :QuestionsLive
   end
 
   # Other scopes may use custom stacks.
